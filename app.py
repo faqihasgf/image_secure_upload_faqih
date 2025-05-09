@@ -17,10 +17,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
 app.config['SECRET_KEY'] = os.urandom(24) # Strong secret key for session management
 
-# --- In-Memory Data Storage (for demonstration purposes) ---
-# In a real application, use a database (e.g., SQLAlchemy with SQLite/PostgreSQL)
-users_db = {}  # Stores user data: {'username': {'password_hash': '...', 'user_id': '...'}}
-images_db = {} # Stores image metadata: {'image_id': {'user_id': '...', 'original_filename': '...', 'stored_filename': '...'}}
+# --- In-Memory Data Storage ---
+users_db = {} 
+images_db = {}
 user_next_id = 1
 image_next_id = 1
 
