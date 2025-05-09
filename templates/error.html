@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Error {{ error_code|default('Page') }} - ImageVault{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-12 text-center">
+    <div class="card p-8">
+        <h1 class="text-6xl font-bold text-indigo-600">{{ error_code|default('Error') }}</h1>
+        <h2 class="mt-4 text-3xl font-bold text-gray-800">Oops! Something went wrong.</h2>
+        <p class="mt-2 text-md text-gray-600">{{ error_message|default('We encountered an unexpected issue. Please try again later or contact support if the problem persists.') }}</p>
+        <div class="mt-8">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">
+                Go to Homepage
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

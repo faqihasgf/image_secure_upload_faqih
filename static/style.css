@@ -1,0 +1,16 @@
+/* static/style.css */
+
+/* Global body font and smoothing if not covered by Tailwind or base.html <style> */
+body {
+    font-family: 'Inter', sans-serif; /* Ensure Inter is the base font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+input[type=text] {
+    border: 3px solid #000000;
+    border-radius:10px;
+}
+input[type=password] {
+    border: 3px solid #000000;
+    border-radius:10px;
+}

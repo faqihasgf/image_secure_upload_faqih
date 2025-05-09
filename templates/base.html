@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Image Uploader{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body class="min-h-screen flex flex-col">
+    <nav class="bg-emerald-700 text-gray-50 shadow-md">
+        <div class="container mx-auto px-6 py-3 flex flex-col sm:flex-row justify-between items-center">
+            <a href="{{ url_for('index') }}" class="text-xl font-semibold hover:text-teal-200 mb-2 sm:mb-0">Muhammad Faqih - Secure Image Upload - Sawit Pro</a>
+            <div class="flex flex-col sm:flex-row items-center">
+                {% if session.user_id %}
+                    <span class="mr-0 sm:mr-4 mb-2 sm:mb-0 text-center sm:text-left">Welcome, {{ session.username }}!</span>
+                    <a href="{{ url_for('gallery') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-emerald-400 mb-1 sm:mb-0 sm:mr-1 w-full sm:w-auto text-center">My Gallery</a>
+                    <a href="{{ url_for('upload_image') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-emerald-400 mb-1 sm:mb-0 sm:mr-1 w-full sm:w-auto text-center">Upload Image</a>
+                    <a href="{{ url_for('logout') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-emerald-400 w-full sm:w-auto text-center">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-emerald-400 mb-1 sm:mb-0 sm:mr-1 w-full sm:w-auto text-center">Login</a>
+                    <a href="{{ url_for('register') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-emerald-400 w-full sm:w-auto text-center">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mb-6">
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category|default('info') }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-emerald-950 text-gray-50 text-center py-4 mt-auto">
+        <p> Muhammad Faqih - SAWIT PRO Assignment.</p>
+    </footer>
+</body>
+</html>
