@@ -1,6 +1,6 @@
-# ImageVault - Secure Image Uploader
+# Secure Image Upload
 
-ImageVault is a simple web application that allows users to securely register, log in, upload image files, view them in a personalized gallery, and delete them.
+This is a web application that allows users to securely register, log in, upload image files, view them in a personalized gallery, and delete them.
 
 ## Features
 
@@ -17,7 +17,8 @@ ImageVault is a simple web application that allows users to securely register, l
 ## Project Structure
 
 
-imagevault/
+```
+image_secure_upload_faqih/
 ├── app.py             # Main Flask application logic
 ├── templates/         # HTML 
 │   ├── base.html
@@ -31,7 +32,7 @@ imagevault/
 ├── uploads/           # Directory where uploaded images are stored (auto-created)
 ├── requirement.txt    # Python dependencies
 └── README.md          # This file
-
+```
 
 ## Setup and Installation
 
@@ -42,23 +43,23 @@ imagevault/
 
 2.  **Clone the Repository:**
 
-        '''git clone <repository_url>
-        cd image_secure_upload_faqih'''
+        git clone <repository_url>
+        cd image_secure_upload_faqih
         
     * Otherwise, create the directory structure and files as listed above.
 
 3.  **Create and Activate a Virtual Environment:**
     
-    python -m venv venv
+    ```python -m venv venv```
 
 4.  **Install Dependencies:**
     
-    pip install -r requirements.txt
+    ```pip install -r requirements.txtv```
     
 
 5.  **Run the Application:**
     
-    python app.py
+    ```python app.py```
     
     /the application will typically be available at `http://127.0.0.1:5000/`. The `uploads/` directory will be created automatically if it doesn't exist when the app starts./
 
